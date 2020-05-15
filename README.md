@@ -11,4 +11,5 @@ The game written in pixilang.
 5. Have a nice game.
 
 Author of the original game: https://zen.yandex.ru/id/5d9846210ce57b00ae024387
+
 Made changes: @lebekons
