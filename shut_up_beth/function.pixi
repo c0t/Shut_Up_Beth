@@ -1,0 +1,66 @@
+//====================
+//===    FOO 2   =====
+//====================
+
+// берёт число возврат-строка
+fn n2s( $n )
+ {
+  $s=""
+  num2str( $s, $n )
+  ret( $s)
+ }
+
+while( get_event() ) { if EVT[ EVT_TYPE ] == EVT_QUIT { halt }}
+
+fn cleanINPUT()
+ { while( get_event() )
+    {   sleep(1) }
+ }
+ 
+ fn wait_4_INPUT()
+ { while( get_event()==0 )
+    {   sleep(1) }
+ }
+
+//================================================
+// берёт число возврат-строка в HEX
+fn  dec2hex($num)
+{
+	$table = "0123456789ABCDEF"
+	result_string = "  "
+	result_string[0] = $table[(240 & $num)/2/2/2/2]
+	result_string[1] = $table[15 & $num]
+	ret( result_string )
+}
+
+fn dist($x1,$y1,$x2,$y2)
+ {
+   $xx=$x1-$x2 $xx=$xx*$xx
+   $yy=$y1-$y2 $yy=$yy*$yy
+   ret(sqrt($xx+$yy)) 
+}
+
+// возвращает альфа-контенер размерами $x $y 
+// с изменением прозрачности по синусоиде по х-оси
+// с шагом $ofset (радиан)
+// пример:
+// alf=make_alpha(800,100,0.95)
+// set_alpha(img,alf)
+
+fn make_alpha($x,$y,$ofset)
+{
+ alf=new($x,$y,INT8)
+ $i=0 $xx=0
+  while $xx<$x
+   { $z= 127+128*sin($i)
+     $yy=0 
+     while $yy<$y
+      {
+       alf[$xx,$yy]=$z
+       $yy+1
+      }
+    $i=$i+$ofset
+    $xx+1
+   }
+   ret(alf)
+}
