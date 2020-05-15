@@ -1,5 +1,5 @@
-# Shut_Up_Deth
-Shut_Up_Deth
+# Shut_Up_Beth
+Shut_Up_Beth
 The game written in pixilang.
 
 ### How to play?
